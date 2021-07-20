@@ -7,6 +7,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 public class Main {
@@ -22,6 +24,29 @@ public class Main {
             System.exit(1);
         }
         final var instructions = instructionsJson.get().getInstructions();
+    }
+
+    private static final int BLOCK_LENGTH = 32;
+
+    /**
+     * Print a delimiter liner to System.out with length LENGTH.
+     */
+    private static void printSegment(int blocks) {
+        final var a = new char[BLOCK_LENGTH * blocks];
+        Arrays.fill(a, '-');
+        System.out.println(a);
+    }
+
+    private static void printBeginEvent(String eventName, String workerName, boolean terminate) {
+        // Truncate long event names to never be longer than 16 characters
+        eventName = eventName.length() < 13
+                ? eventName
+                : eventName.substring(0, 13) + "...";
+        System.out.printf("BEGIN %s\tUSING %s |%s", eventName, workerName, terminate ? "\n" : "");
+    }
+
+    private static void printEndEvent(boolean terminate) {
+        System.out.printf("              END              |%s", terminate ? "\n" : "");
     }
 
     /**
