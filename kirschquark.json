@@ -1,0 +1,44 @@
+{
+  "instructions": [
+    {
+      "process": "kauf",
+      "duration": 10,
+      "depends_on": []
+    },
+    {
+      "process": "wash",
+      "duration": 5,
+      "depends_on": [1]
+    },
+    {
+      "process": "half",
+      "duration": 10,
+      "depends_on": [2]
+    },
+    {
+      "process": "mixA",
+      "duration": 4,
+      "depends_on": [1]
+    },
+    {
+      "process": "sugr",
+      "duration": 1,
+      "depends_on": [4]
+    },
+    {
+      "process": "mixR",
+      "duration": 5,
+      "depends_on": [3, 5]
+    },
+    {
+      "process": "tabl",
+      "duration": 10,
+      "depends_on": [1]
+    },
+    {
+      "process": "serv",
+      "duration": 1,
+      "depends_on": [6, 7]
+    }
+  ]
+}

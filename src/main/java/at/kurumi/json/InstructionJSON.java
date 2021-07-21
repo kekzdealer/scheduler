@@ -8,10 +8,10 @@ import java.util.Set;
 public class InstructionJSON {
 
     private final String process;
-    private final long duration;
+    private final int duration;
     private final Set<Integer> depends_on;
 
-    public InstructionJSON(String process, long duration, Set<Integer> depends_on) {
+    public InstructionJSON(String process, int duration, Set<Integer> depends_on) {
         this.process = process;
         this.duration = duration;
         this.depends_on = depends_on;
@@ -21,7 +21,7 @@ public class InstructionJSON {
         return process;
     }
 
-    public long getDuration() {
+    public int getDuration() {
         return duration;
     }
 
